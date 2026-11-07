@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <title>Bascule — Comparez ce qui compte</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Bascule, retour en haut">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>BASCULE<span class="brand-period">.</span></span>
+      </a>
+      <div class="header-right"><span class="live-dot"></span> Analyse locale · Hors ligne</div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="eyebrow"><span>01 / EXPÉRIENCE LOCALE</span><span class="eyebrow-line"></span><span>DOCUMENTS</span></div>
+        <div class="hero-grid">
+          <div>
+            <h1 id="page-title">Ce qui a changé.<br><em>Ce qui compte.</em></h1>
+            <p class="hero-copy">Comparez deux versions d’un texte. Bascule isole les passages modifiés et signale les chiffres, délais, droits, devoirs et négations à relire en priorité.</p>
+          </div>
+          <div class="hero-aside"><span class="aside-number">02</span><span class="aside-caption">versions<br>à confronter</span><span class="aside-arrow" aria-hidden="true">↘</span></div>
+        </div>
+      </section>
+
+      <section class="workspace" aria-labelledby="input-title">
+        <div class="section-heading"><div><span class="section-index">01 — ENTRÉE</span><h2 id="input-title">Vos deux versions</h2></div><p>Collez du texte ou importez un fichier .txt ou .md.</p></div>
+        <div class="editors">
+          <div class="editor-card old" id="oldDrop">
+            <div class="editor-top"><span class="version-badge">A</span><label for="oldText">Version précédente</label><button type="button" class="mini-button" id="oldFileButton">Importer un fichier <span aria-hidden="true">↗</span></button></div>
+            <input id="oldName" class="name-input" type="text" maxlength="100" aria-label="Nom de la version précédente" placeholder="Nom de la version précédente">
+            <textarea id="oldText" spellcheck="false" aria-label="Texte de la version précédente" placeholder="Collez la première version ici…"></textarea>
+            <div class="editor-foot"><span id="oldCount">0 caractère</span><span>Déposez un fichier ici</span></div>
+            <input id="oldFile" type="file" accept=".txt,.md,.markdown,text/plain,text/markdown" hidden>
+          </div>
+          <div class="editor-card new" id="newDrop">
+            <div class="editor-top"><span class="version-badge">B</span><label for="newText">Version actuelle</label><button type="button" class="mini-button" id="newFileButton">Importer un fichier <span aria-hidden="true">↗</span></button></div>
+            <input id="newName" class="name-input" type="text" maxlength="100" aria-label="Nom de la version actuelle" placeholder="Nom de la version actuelle">
+            <textarea id="newText" spellcheck="false" aria-label="Texte de la version actuelle" placeholder="Collez la deuxième version ici…"></textarea>
+            <div class="editor-foot"><span id="newCount">0 caractère</span><span>Déposez un fichier ici</span></div>
+            <input id="newFile" type="file" accept=".txt,.md,.markdown,text/plain,text/markdown" hidden>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="actions-left"><button type="button" class="primary-button" id="analyzeButton">Analyser les différences <span aria-hidden="true">↗</span></button><button type="button" class="text-button" id="exampleButton">Recharger l’exemple</button><button type="button" class="text-button" id="swapButton">Inverser A / B</button></div>
+          <div class="actions-right"><button type="button" class="text-button" id="projectImportButton">Ouvrir un projet</button><button type="button" class="text-button" id="projectExportButton">Sauver le projet</button><input id="projectFile" type="file" accept=".json,application/json" hidden></div>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="results" id="results" aria-labelledby="results-title">
+        <div class="section-heading results-heading"><div><span class="section-index">02 — LECTURE</span><h2 id="results-title">La carte des changements</h2></div><button type="button" class="outline-button" id="reportButton">Exporter le rapport <span aria-hidden="true">↓</span></button></div>
+        <div class="summary-bar" id="summaryBar"></div>
+        <div class="result-intro"><p id="resultStatement"></p><p class="result-caveat">Signaux de relecture fondés sur le texte. Vérifiez le contexte avant toute décision.</p></div>
+        <div class="review-progress" id="reviewProgress" aria-live="polite"></div>
+        <div class="results-controls"><div class="filters" id="filters" role="group" aria-label="Filtrer les changements"></div><label class="search-field"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Chercher dans les passages" aria-label="Chercher dans les passages"></label></div>
+        <div class="change-list" id="changeList" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer><div class="footer-brand">BASCULE<span>.</span></div><p>Un prototype expérimental. Vos textes restent dans votre navigateur ; aucun service externe n’est appelé.</p><span>© 2026 · V1</span></footer>
+  </div>
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>
